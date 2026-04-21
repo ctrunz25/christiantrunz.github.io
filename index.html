@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christian Trunz | Insurance & Business Development</title>
+<meta name="description" content="Christian Trunz is an insurance and business development professional at Stephens, based in New York City.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #FAF8F3;
+    --warm-dark: #1C1A17;
+    --warm-mid: #5C5649;
+    --warm-light: #E8E2D5;
+    --gold: #B8975A;
+    --gold-light: #F0E8D5;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--warm-dark);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 4rem;
+    background: rgba(250,248,243,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--warm-light);
+  }
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--warm-dark);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warm-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--warm-dark); }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 7rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -10%; right: -5%;
+    width: 45%;
+    height: 80%;
+    background: var(--gold-light);
+    border-radius: 0 0 0 60%;
+    z-index: 0;
+    opacity: 0.6;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+  }
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    font-weight: 500;
+    line-height: 1.05;
+    margin-bottom: 1.75rem;
+    color: var(--warm-dark);
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-text {
+    font-size: 1.05rem;
+    color: var(--warm-mid);
+    max-width: 460px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    background: var(--warm-dark);
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s;
+    border-radius: 2px;
+  }
+  .btn:hover { background: var(--warm-mid); transform: translateY(-1px); }
+
+  section { padding: 6rem 4rem; }
+  section:nth-child(even) { background: white; }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: 2rem;
+    color: var(--warm-dark);
+  }
+  .section-body {
+    font-size: 1rem;
+    color: var(--warm-mid);
+    max-width: 600px;
+    line-height: 1.85;
+    font-weight: 300;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    max-width: 1000px;
+  }
+  .about-right { padding-top: 1rem; }
+  .stat-row { display: flex; gap: 3rem; margin-top: 3rem; }
+  .stat { border-left: 2px solid var(--gold); padding-left: 1.25rem; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.25rem;
+    font-weight: 500;
+    color: var(--warm-dark);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .stat-label { font-size: 0.75rem; color: var(--warm-mid); letter-spacing: 0.05em; }
+
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 900px;
+  }
+  .expertise-card {
+    padding: 2rem;
+    border: 1px solid var(--warm-light);
+    background: var(--cream);
+    transition: border-color 0.2s, transform 0.2s;
+    border-radius: 2px;
+  }
+  .expertise-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+  .expertise-icon {
+    width: 36px; height: 36px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 16px;
+  }
+  .expertise-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--warm-dark);
+  }
+  .expertise-desc { font-size: 0.85rem; color: var(--warm-mid); line-height: 1.7; font-weight: 300; }
+
+  .contact-inner {
+    max-width: 560px;
+  }
+  .contact-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--warm-light);
+    font-size: 0.9rem;
+    color: var(--warm-mid);
+  }
+  .contact-line:first-child { border-top: 1px solid var(--warm-light); }
+  .contact-icon { color: var(--gold); font-size: 14px; width: 20px; text-align: center; }
+  .contact-value { font-weight: 400; color: var(--warm-dark); }
+
+  footer {
+    background: var(--warm-dark);
+    color: var(--warm-light);
+    padding: 2.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--cream);
+  }
+
+  @media (max-width: 700px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.25rem; }
+    .hero, section { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .about-grid, .expertise-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .stat-row { gap: 2rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-name">Christian Trunz</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">New York City &nbsp;·&nbsp; Insurance &amp; Business Development</p>
+    <h1>Christian<br><em>Trunz</em></h1>
+    <p class="hero-text">Building meaningful client relationships and driving growth in insurance and financial services at Stephens.</p>
+    <a href="#contact" class="btn">Get in touch</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <p class="section-label">About</p>
+      <h2>Relationships built on trust</h2>
+    </div>
+    <div class="about-right">
+      <p class="section-body">Christian Trunz is a business development professional based in New York City, focused on insurance and financial services. At Stephens, Christian works to connect clients with the right solutions, combining deep industry knowledge with a commitment to long-term partnership.</p>
+      <p class="section-body" style="margin-top: 1.25rem;">Outside of work, Christian is a dedicated father and an engaged member of the New York City community.</p>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-num">NYC</div>
+          <div class="stat-label">Based in</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Stephens</div>
+          <div class="stat-label">Current firm</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="expertise">
+  <p class="section-label">Expertise</p>
+  <h2>What I do</h2>
+  <div class="expertise-grid">
+    <div class="expertise-card">
+      <div class="expertise-icon">◆</div>
+      <div class="expertise-title">Insurance</div>
+      <p class="expertise-desc">Navigating complex insurance landscapes to deliver tailored coverage solutions for individuals and businesses.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">◈</div>
+      <div class="expertise-title">Business development</div>
+      <p class="expertise-desc">Identifying and cultivating new opportunities, building pipelines, and fostering partnerships that drive sustainable growth.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">◉</div>
+      <div class="expertise-title">Client relationships</div>
+      <p class="expertise-desc">Creating lasting connections through attentive service, clear communication, and a genuine commitment to clients' goals.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <p class="section-label">Contact</p>
+  <h2>Let's connect</h2>
+  <p class="section-body" style="margin-bottom: 2.5rem;">Based in New York City and open to conversations about insurance, business development, or professional collaboration.</p>
+  <div class="contact-inner">
+    <div class="contact-line">
+      <span class="contact-icon">&#9679;</span>
+      <span>Location</span>
+      <span class="contact-value" style="margin-left: auto;">New York City, NY</span>
+    </div>
+    <div class="contact-line">
+      <span class="contact-icon">&#9679;</span>
+      <span>Firm</span>
+      <span class="contact-value" style="margin-left: auto;">Stephens</span>
+    </div>
+    <div class="contact-line">
+      <span class="contact-icon">&#9679;</span>
+      <span>LinkedIn</span>
+      <span class="contact-value" style="margin-left: auto;">linkedin.com/in/christiantrunz</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">Christian Trunz</span>
+  <span>New York City &nbsp;·&nbsp; Insurance &amp; Business Development</span>
+</footer>
+
+</body>
+</html>
